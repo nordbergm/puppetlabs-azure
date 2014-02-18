@@ -43,6 +43,7 @@ class azure(
   ) {
 
   package { 'walinuxagent':
+    name   => 'WALinuxAgent',
     ensure => present,
   }
 
