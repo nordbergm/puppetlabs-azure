@@ -60,7 +60,7 @@ class azure(
     ensure     => running,
     enable     => true,
     hasrestart => true,
-    require    => Service['walinuxagent'],
+    require    => Package['walinuxagent'],
   }
 
 }
