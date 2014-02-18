@@ -42,8 +42,7 @@ class azure(
   $verbose_logs               = 'n'
   ) {
 
-  package { 'walinuxagent':
-    name   => 'WALinuxAgent',
+  package { 'WALinuxAgent':
     ensure => present,
   }
 
@@ -53,15 +52,15 @@ class azure(
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    require => Package['walinuxagent'],
-    notify  => Service['walinuxagent'],
+    require => Package['WALinuxAgent'],
+    notify  => Service['waagent'],
   }
 
-  service { 'walinuxagent':
+  service { 'waagent':
     ensure     => running,
     enable     => true,
     hasrestart => true,
-    require    => Package['walinuxagent'],
+    require    => Package['WALinuxAgent'],
   }
 
 }
